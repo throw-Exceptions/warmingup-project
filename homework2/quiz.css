@@ -1,0 +1,54 @@
+.container {
+    width: 60%;
+}
+.header {
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.footer {
+    color: #595959;
+}
+
+.author, .contact {
+    margin-left: 8px;
+}
+
+.e-mail {
+    margin-left: 5px;
+}
+
+.dynamic-body {
+    width: 100%;
+}
+
+.question-number {
+    font-weight: bold;
+    font-size: 30px;
+    color: #595959;
+    margin-right: 5px;
+}
+
+.question-content {
+    font-weight: bold;
+    font-size: 20px;
+    color: #595959;
+}
+
+.choice {
+    margin: 5px;
+    width: 100%;
+}
+
+.button-area {
+    text-align: center;
+}
+
+.prev-button, .next-button {
+    display: inline-block;
+    width: 100px;
+}
+
+.prev-button, .next-button {
+    margin: 5px;
+}
