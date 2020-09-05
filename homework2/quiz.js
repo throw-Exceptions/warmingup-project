@@ -15,8 +15,8 @@
         $(".start-button").click(function() {
             $(".dynamic-body")
                 .empty()
-                .append($("<span>").addClass("question-number"))
-                .append($("<span>").addClass("question-content"))
+                .append($("<span>").addClass("quiz-number"))
+                .append($("<span>").addClass("quiz-question"))
                 .append($("<div>").addClass("choice-area"))
                 .append($("<div>").addClass("button-area"));
             load(1);
@@ -34,8 +34,8 @@
 
     function load(curNumber) {
         let curQuiz = Quiz.getQuiz(curNumber);
-        $(".question-number").text(curQuiz["number"]);
-        $(".question-content").text(curQuiz["content"]);
+        $(".quiz-number").text(curQuiz.number);
+        $(".quiz-question").text(curQuiz.question);
         $(".choice-area").empty();
         for (i = 0; i < curQuiz.choice_list.length; i++) {
             let choice = curQuiz.choice_list[i];
@@ -48,7 +48,7 @@
         $(".choice").click(function() {
             $(".choice").removeClass("btn-secondary").addClass("btn-outline-secondary");
             $(this).removeClass("btn-outline-secondary").addClass("btn-secondary");
-            Quiz.selectChoice(Number($(".question-number").text()), $(this).text());
+            Quiz.selectChoice(Number($(".quiz-number").text()), $(this).text());
         });
         $(".button-area").empty();
         $(".button-area").append(makeButton("Prev", "prev-button", "btn-secondary"));
@@ -64,14 +64,14 @@
     }
 
     function loadPrev() {
-        let curNumber = Number($(".question-number").text());
+        let curNumber = Number($(".quiz-number").text());
         if (curNumber > 1) {
             load(curNumber - 1);
         }
     }
 
     function loadNext() {
-        let curNumber = Number($(".question-number").text());
+        let curNumber = Number($(".quiz-number").text());
         if (curNumber < Quiz.getQuizSize()) {
             load(curNumber + 1);
         }

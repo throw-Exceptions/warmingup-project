@@ -7,7 +7,7 @@ let Quiz = {
         "quiz_list" : [
             {
                 "number" : 1,
-                "content" : "나의 이름은?",
+                "question" : "나의 이름은?",
                 "choice_list" : [
                     "김영한",
                     "권영환",
@@ -18,7 +18,7 @@ let Quiz = {
             },
             {
                 "number" : 2,
-                "content" : "나의 키는?",
+                "question" : "나의 키는?",
                 "choice_list" : [
                     "179",
                     "180",
@@ -29,7 +29,7 @@ let Quiz = {
             },
             {
                 "number" : 3,
-                "contents" : "내가 제일 좋아하는 음식은?",
+                "question" : "내가 제일 좋아하는 음식은?",
                 "choice_list" : [
                     "삼겹살",
                     "치킨",

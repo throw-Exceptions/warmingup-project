@@ -22,14 +22,14 @@
     width: 100%;
 }
 
-.question-number {
+.quiz-number {
     font-weight: bold;
     font-size: 30px;
     color: #595959;
     margin-right: 5px;
 }
 
-.question-content {
+.quiz-content {
     font-weight: bold;
     font-size: 20px;
     color: #595959;
