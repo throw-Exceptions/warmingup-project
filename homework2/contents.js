@@ -38,6 +38,30 @@ let Quiz = {
                     "라면"
                 ],
                 "answer" : "치킨"
+            },
+            {
+                "number" : 4,
+                "question" : "나의 생일은?",
+                "choice_list" : [
+                    "1월 15일",
+                    "1월 18일",
+                    "1월 28일",
+                    "2월 18일",
+                    "2월 28일"
+                ],
+                "answer" : "2월 18일"
+            },
+            {
+                "number" : 5,
+                "question" : "나의 외가 친척은 몇명?",
+                "choice_list" : [
+                    "23명",
+                    "31명",
+                    "39명",
+                    "47명",
+                    "55명"
+                ],
+                "answer" : "55명"
             }
         ]
     },
@@ -91,6 +115,6 @@ let Quiz = {
                 correctNumber += 1;
             }
         }
-        return (correctNumber / this.contents.quiz_list.length * 100);
+        return Math.floor(correctNumber / this.contents.quiz_list.length * 100);
     }
 }
