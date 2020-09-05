@@ -9,10 +9,10 @@ let Quiz = {
                 "number" : 1,
                 "question" : "나의 이름은?",
                 "choice_list" : [
-                    "김영한",
+                    "권영한",
                     "권영환",
                     "김용환",
-                    "권영한"
+                    "김영한"
                 ],
                 "answer" : "권영한",
             },
@@ -100,7 +100,6 @@ let Quiz = {
 
     selectChoice: function(number, selectedChoice) {
         this.selectedChoices[number] = selectedChoice;
-        console.log(this.selectedChoices);
     },
 
     submit: function() {
@@ -116,5 +115,9 @@ let Quiz = {
             }
         }
         return Math.floor(correctNumber / this.contents.quiz_list.length * 100);
+    },
+
+    getResultCode: function() {
+
     }
 }

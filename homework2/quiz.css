@@ -49,3 +49,25 @@ button {
     width: 100px;
     margin: 5px;
 }
+
+.score {
+    margin-left: 20%;
+    font-weight: bold;
+    font-size: 45px;
+}
+
+.perfect {
+    color: gold;
+}
+
+.good {
+    color: green;
+}
+
+.bad {
+    color: orange;
+}
+
+.trash {
+    color: red;
+}

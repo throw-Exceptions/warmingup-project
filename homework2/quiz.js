@@ -4,7 +4,13 @@
     $(".e-mail").text(Quiz.getEmail());
     $(".contact").text(Quiz.getPhoneNumber());
 
-    start();
+    let scoreIndex = location.href.indexOf("score");
+    if (scoreIndex >= 0) {
+        let score = Number(location.href.substring(scoreIndex + 6));
+        result(score);
+    } else {
+        start();
+    }
 
     function start() {
         $(".dynamic-body").empty().append(
@@ -78,7 +84,41 @@
     }
 
     function submit() {
-        alert("Score: " + Quiz.submit());
+        let score = Quiz.submit();
+        if (score < 0) {
+            alert("모든 문제를 풀어주세요.");
+            return;
+        }
+        result(score);
+    }
+
+    function result(score) {
+        $(".dynamic-body")
+            .empty()
+            .append($("<span>").addClass("score").text(score))
+            .append($("<span>").text("점"))
+            .append($("<div>").addClass("button-area").append(makeButton("share", "share-button", "btn-outline-secondary")));
+        if (score == 100) {
+            $(".score").addClass("perfect");
+        } else if (score >= 80) {
+            $(".score").addClass("good");
+        } else if (score >= 40) {
+            $(".score").addClass("bad");
+        } else {
+            $(".score").addClass("trash");
+        }
+        $(".share-button").click(function() {
+            alert("링크가 복사 되었습니다. 친구와 공유해보세요!");
+        });
+        let clipboard = new ClipboardJS(".share-button", {
+            text: function() {
+                if (!location.href.includes("score")) {
+                    return location.href + "?score=" + score;
+                } else {
+                    return location.href;
+                }
+            }
+        })
     }
 
 })(jQuery);
