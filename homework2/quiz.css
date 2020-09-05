@@ -44,11 +44,8 @@
     text-align: center;
 }
 
-.prev-button, .next-button {
+button {
     display: inline-block;
     width: 100px;
-}
-
-.prev-button, .next-button {
     margin: 5px;
 }
