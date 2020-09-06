@@ -97,7 +97,9 @@
             .empty()
             .append($("<span>").addClass("score").text(score))
             .append($("<span>").text("점"))
-            .append($("<div>").addClass("button-area").append(makeButton("share", "share-button", "btn-outline-secondary")));
+            .append($("<div>").addClass("button-area")
+                .append(makeButton("재도전", "retry-button", "btn-outline-secondary"))
+                .append(makeButton("공유하기", "share-button", "btn-outline-secondary")));
         if (score == 100) {
             $(".score").addClass("perfect");
         } else if (score >= 80) {
@@ -107,6 +109,10 @@
         } else {
             $(".score").addClass("trash");
         }
+        $(".retry-button").click(function() {
+            Quiz.selectedChoices = {};
+            start();
+        })
         $(".share-button").click(function() {
             alert("링크가 복사 되었습니다. 친구와 공유해보세요!");
         });
