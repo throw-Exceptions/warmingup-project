@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>그림판</title></head>
+<body>
+<h1>Honey's painting</h1>
+<hr>
+<button type="button" class="red">Red</button>
+<button type="button" class="blue">Blue</button>
+<button type="button" class="clear">Clear</button>
+<hr>
+<canvas id="myCanvas" style="background-color:aliceblue" width="1000" height="1000"></canvas>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="paint.js"></script>
+<script>
+$(".red").click(function() {
+    Pen.standby({
+        color: "red",
+        width: 2
+    });
+});
+$(".blue").click(function() {
+    Pen.standby({
+        color: "green",
+        width: 5
+    });
+});
+$(".clear").click(function() {
+    canvas = document.getElementById("myCanvas");
+    context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+});
+</script>
+</body>
+</html>

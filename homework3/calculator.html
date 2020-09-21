@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>warming-up-3</title>
-    <link rel="stylesheet" href="calculater.css">
+    <link rel="stylesheet" href="calculator.css">
 </head>
 <body>
 <div id="calculator">
@@ -14,9 +14,15 @@
         <span id="input">NOT POWERED...</span>
     </div>
     <p>
+        <button type="button" id="onoff">ON</button>
         <button type="button" id="erase">CE</button>
         <button type="button" id="clean">C</button>
-        <button type="button" id="cancel"><</button>
+        <button type="button" id="delete">del</button>
+    </p>
+    <p>
+        <button type="button" id="left-paren" class="operator">(</button>
+        <button type="button" id="right-paren" class="operator">)</button>
+        <button type="button" id="modulo" class="operator">%</button>
         <button type="button" id="divide" class="operator">/</button>
     </p>
     <p>
@@ -38,12 +44,12 @@
         <button type="button" id="plus" class="operator">+</button>
     </p>
     <p>
-        <button type="button" id="onoff">ON</button>
+        <button type="button" id="unary">+/-</button>
         <button type="button" id="zero" class="number">0</button>
         <button type="button" id="point" class="number">.</button>
         <button type="button" id="equal">=</button>
     </p>
 </div>
-<script src="calculater.js"></script>
+<script src="calculator.js"></script>
 </body>
 </html>

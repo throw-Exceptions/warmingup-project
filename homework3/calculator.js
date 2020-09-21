@@ -92,3 +92,29 @@ element.addEventListener("click", function() {
         formula = "";
     }
 });
+
+element = document.getElementById("delete");
+element.addEventListener("click", function() {
+    if (power === true) {
+        inputNumber = inputNumber.substring(0, inputNumber.length - 1);
+        let e = document.getElementById("input");
+        if (inputNumber.length === 0) {
+            e.textContent = "0";
+        } else {
+            e.textContent = inputNumber;
+        }
+    }
+});
+
+element = document.getElementById("unary");
+element.addEventListener("click", function() {
+    if (power === true) {
+        if (inputNumber[0] === "-") {
+            inputNumber = inputNumber.substring(1);
+        } else {
+            inputNumber = "-" + inputNumber;
+        }
+        let e = document.getElementById("input");
+        e.textContent = inputNumber;
+    }
+});
