@@ -1,9 +1,8 @@
 let power = false;
-let formula = "";
-let inputNumber = "";
 let formulaDisplay = $("#formula");
 let mainDisplay = $("#input");
 let onOffButton = $("#onoff");
+let calculator = new Calculator();
 
 $("#onoff").on("click", function() {
     if (power === true) {
@@ -11,79 +10,62 @@ $("#onoff").on("click", function() {
         formulaDisplay.text("formula");
         mainDisplay.text("NOT POWERED...");
         onOffButton.text("ON");
+        calculator.initialize();
     } else {
         power = true;
         formulaDisplay.text("");
         mainDisplay.text("0");
         onOffButton.text("OFF");
-        formula = "";
     }
 });
 
 $("#equal").on("click", function() {
     if (power != true) return;
-    formula += inputNumber;
-    inputNumber = "";
-    formulaDisplay.text(formula);
-    let value = eval(formula);
-    if (value != undefined) {
-        mainDisplay.text(value);
-    } else {
-        mainDisplay.text("formula is abnormal");
-    }
+    let result = calculator.calc();
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
 
 $(".number").on("click", function() {
     if (power != true) return;
     let num = $(this).text()
-    inputNumber += num;
-    mainDisplay.text(inputNumber);
+    let result = calculator.input(num, "number");
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
 
 $(".operator").on("click", function() {
     if (power != true) return;
-    let oper = $(this).text();
-    formula += inputNumber;
-    if (oper === "x") {
-        formula += "*";
-    } else {
-        formula += oper;
-    }
-    inputNumber = "";
-    formulaDisplay.text(formula);
-    mainDisplay.text("0");
+    let oper = ($(this).text() === "x") ? "*" : $(this).text();
+    let result = calculator.input(oper, "operator");
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
 
 $("#erase").on("click", function() {
     if (power != true) return;
-    mainDisplay.text("0");
-    inputNumber = "";
+    let result = calculator.erase();
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
 
 $("#clean").on("click", function() {
     if (power != true) return;
-    mainDisplay.text("0")
-    inputNumber = "";
-    formulaDisplay.text("");
-    formula = "";
+    let result = calculator.clean();
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
 
 $("#delete").on("click", function() {
     if (power != true) return;
-    inputNumber = inputNumber.substring(0, inputNumber.length - 1);
-    if (inputNumber.length === 0) {
-        mainDisplay.text("0");
-    } else {
-        mainDisplay.text(inputNumber);
-    }
+    let result = calculator.delete();
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
 
 $("#unary").on("click", function() {
     if (power != true) return;
-    if (inputNumber[0] === "-") {
-        inputNumber = inputNumber.substring(1);
-    } else {
-        inputNumber = "-" + inputNumber;
-    }
-    mainDisplay.text(inputNumber);
+    let result = calculator.unary();
+    formulaDisplay.text(result.formula);
+    mainDisplay.text(result.number);
 });
