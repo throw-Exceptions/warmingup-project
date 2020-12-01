@@ -1,0 +1,103 @@
+.chat-room {
+    width: 450px;
+    height: 800px;
+    border: solid #d0d0d0 1px;
+    border-radius: 5px;
+}
+
+.user-info {
+    background-color: #fefefe;
+    height: 12%;
+}
+.user-name {
+    padding: 10px;
+}
+
+.chat-area {
+    background-color: #9bbbd4;
+    height: 70%;
+    overflow: scroll;
+}
+
+.game-selector {
+    height: 5%;
+    border-bottom: solid #d0d0d0 1px;
+    background-color: #fafafa;
+}
+
+.chat-input {
+    background-color: #fefefe;
+    height: 13%;
+}
+
+.chat-input-textarea {
+    width: 75%;
+    height: 100%;
+}
+
+.chat-input-button {
+    width: 25%;
+    height: 100%;
+}
+
+.chat-text {
+    width: 95%;
+    height: 80%;
+    resize: none;
+    border: none;
+}
+.chat-text:focus {
+    outline: none;
+}
+
+.chat-submit {
+    width: 80%;
+    height: 80%;
+    background-color: #fef01b;
+    border: #fed010 1px solid;
+    border-radius: 3px;
+}
+.chat-submit:focus {
+    outline: none;
+}
+.chat-submit:disabled {
+    background-color: #fafafa;
+    border: #e0e0e0 1px solid;
+}
+
+.other-message, .my-message {
+    padding-top: 10px;
+}
+.other-profile {
+    width: 60px;
+}
+.other-profile-image {
+    border-radius: 15px;
+    width: 45px;
+    height: 45px;
+    margin-top: 5px;
+}
+.other-name {
+    margin: 5px;
+}
+.other-message-box {
+    max-width: 60%;
+}
+.other-message-content {
+    border-radius: 5px;
+    background-color: #fafafa;
+    margin: 3px;
+    padding: 5px;
+    width: fit-content;
+}
+
+.my-message-box {
+    max-width: 60%;
+}
+.my-message-content {
+    border-radius: 5px;
+    background-color: #fef01b;
+    margin: 3px 15px 3px 3px;
+    padding: 5px;
+    width: fit-content;
+}

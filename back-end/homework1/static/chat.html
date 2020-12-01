@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Baseball Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <div class="chat-room">
+            <div class="user-info">
+                <div class="user-name">${username}</div>
+            </div>
+            <div class="chat-area">
+                <div class="other-message d-flex justify-content-start">
+                    <div class="other-profile d-flex justify-content-center">
+                        <img src="images/chatbot_image.png" class="other-profile-image">
+                    </div>
+                    <div class="other-message-box d-flex align-items-start flex-column">
+                        <div class="other-name">
+                            Baseball Warrior
+                        </div>
+                        <div class="other-message-content">
+                            안녕하세요. 숫자야구 마스터입니다.
+                        </div>
+                        <div class="other-message-content">
+                            게임을 시작하시려면 "시작"이라고 입력해주세요.
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="my-message d-flex justify-content-end">-->
+<!--                    <div class="my-message-box d-flex align-items-end flex-column">-->
+<!--                        <div class="my-message-content">-->
+<!--                            시작-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+            </div>
+            <div class="game-selector"></div>
+            <div class="chat-input d-flex align-items-center">
+                <div class="chat-input-textarea d-flex justify-content-center align-items-center">
+                    <textarea type="text" class="chat-text"></textarea>
+                </div>
+                <div class="chat-input-button d-flex justify-content-center align-items-center">
+                    <button type="button" class="chat-submit" disabled>전송</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

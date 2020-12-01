@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Chat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .container {
+            width: 100%;
+            height: 800px;
+        }
+        .entrance {
+            width: 400px;
+            height: 400px;
+        }
+        .start-game-button {
+            width: 35%;
+            height: 50px;
+            background-color: #fef01b;
+            border: #fed010 1px solid;
+            border-radius: 3px;
+        }
+        .start-game-button:disabled {
+            background-color: #fafafa;
+            border: #e0e0e0 1px solid;
+        }
+    </style>
+</head>
+<body>
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="entrance">
+        <div class="form-group d-flex justify-content-center">
+            <h1>Game Chat</h1>
+        </div>
+        <div class="form-group">
+            <label for="inputUserName">User Name</label>
+            <input type="text" class="form-control" id="inputUserName" placeholder="Enter User name">
+        </div>
+        <div class="form-group">
+            <label for="inputGame">Game</label>
+            <select id="inputGame" class="form-control">
+                <option selected>Choose...</option>
+                <option>숫자야구</option>
+            </select>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+            <button type="button" class="start-game-button" disabled>게임 시작</button>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    window["username"] = "";
+    $(document).ready(function() {
+        function checkInput() {
+            let userNameInput = $("#inputUserName").val();
+            let gameNameInput = $("#inputGame").val();
+            if (userNameInput.length > 0 && gameNameInput !== "Choose...") {
+                if ($(".start-game-button").prop("disabled") === true) {
+                    $(".start-game-button").removeAttr("disabled");
+                }
+            } else {
+                if ($(".start-game-button").prop("disabled") === false) {
+                    $(".start-game-button").attr("disabled", true);
+                }
+            }
+        }
+        checkInput();
+        $(".form-control").on("input", checkInput);
+        $(".start-game-button").click(function() {
+            let userName = $("#inputUserName").val();
+            let gameName = $("#inputGame").val();
+            switch (gameName) {
+                case "숫자야구":
+                    location.href = location.origin + `/chat/baseball?userName=${userName}`;
+                    break;
+                case "Choose...":
+                default:
+                    break;
+
+            }
+        });
+    });
+</script>
+</body>
+</html>
