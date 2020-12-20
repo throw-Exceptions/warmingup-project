@@ -1,0 +1,173 @@
+* {
+    font-size: 1rem;
+}
+.container {
+    margin: 0 auto;
+    display: flex;
+    width: 450px;
+    flex-direction: column;
+    align-content: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1DDB16;
+}
+.title:hover {
+    cursor: pointer;
+}
+.newContent {
+    margin-bottom: 0.5rem;
+}
+.newContentTable, .modifyContentTable {
+    border: 0.2rem #dddddd solid;
+    width: 100%;
+}
+.newContentInput, .modifyContentInput {
+    border: none;
+    border-bottom: 0.2rem #dddddd solid;
+    width: 90%;
+    margin-top: 0.3rem;
+}
+.submitTd {
+    text-align: center;
+}
+.contentsList {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.list {
+    width: 100%;
+}
+.listTable {
+    width: 100%;
+    border: 0.2rem #dddddd solid;
+    border-radius: 0.3rem;
+    border-collapse: collapse;
+    text-align: center;
+}
+.listTable th {
+    height: 30px;
+}
+.listTable td {
+    border-top: 0.2rem #ddd solid;
+    height: 30px;
+}
+td[colspan="4"] {
+    text-align: left;
+    border-top: 0.1rem #eee solid;
+    padding: 1rem;
+}
+.contentTitle:hover {
+    cursor: pointer;
+}
+.remove {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    margin-top: 0.3rem;
+}
+.removePassword {
+    width: 4rem;
+}
+.newButton {
+    font-weight: bold;
+    text-align: center;
+    width: 3rem;
+    font-size: 1rem;
+    background-color: white;
+    color: #1DDB16;
+    border: 0.1rem #1DDB16 solid;
+    border-radius: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.newContentSubmit {
+    font-weight: bold;
+    text-align: center;
+    width: 4rem;
+    font-size: 1rem;
+    background-color: white;
+    color: #1DDB16;
+    border: 0.1rem #1DDB16 solid;
+    border-radius: 0.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.modifyButton {
+    font-weight: bold;
+    text-align: center;
+    width: 3rem;
+    font-size: 1rem;
+    background-color: white;
+    color: darkblue;
+    border: 0.1rem darkblue solid;
+    border-radius: 0.3rem;
+    margin-left: 0.2rem;
+}
+.removeButton {
+    font-weight: bold;
+    text-align: center;
+    width: 3rem;
+    background-color: white;
+    font-size: 1rem;
+    color: darkred;
+    border: 0.1rem darkred solid;
+    border-radius: 0.3rem;
+    margin-left: 0.2rem;
+}
+.moreContentsButton {
+    font-weight: bold;
+    text-align: center;
+    width: 4rem;
+    font-size: 1rem;
+    background-color: white;
+    color: #1DDB16;
+    border: none;
+    border-radius: 0.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+    width: 100%;
+}
+.modifyContentSubmit {
+    font-weight: bold;
+    text-align: center;
+    width: 3rem;
+    font-size: 1rem;
+    background-color: white;
+    color: #1DDB16;
+    border: 0.1rem #1DDB16 solid;
+    border-radius: 0.3rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+.cancelContentSubmit {
+    font-weight: bold;
+    text-align: center;
+    width: 3rem;
+    background-color: white;
+    font-size: 1rem;
+    color: darkred;
+    border: 0.1rem darkred solid;
+    border-radius: 0.3rem;
+    margin-left: 0.2rem;
+}
+.newButton:hover, .newContentSubmit:hover, .removeButton:hover, .modifyButton:hover,
+.moreContentsButton:hover, .modifyContentSubmit:hover, .cancelContentSubmit:hover {
+    cursor: pointer;
+}
+.newButton:focus, .newContentSubmit:focus, .removeButton:focus, .modifyButton:focus,
+.moreContentsButton:focus, .modifyContentSubmit:focus, .cancelContentSubmit:focus {
+    outline: none;
+}
+.modifyContentTable {
+    position: fixed;
+    top: 30%;
+    margin: 0 auto;
+    width: 450px;
+    background-color: white;
+    box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+    z-index : 100;
+}

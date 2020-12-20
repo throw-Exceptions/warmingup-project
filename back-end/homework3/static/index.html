@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div class="container">
+    <section class="title">게시판</section>
+    <section class="newContent">
+        <button type="button" class="newButton">새 글</button>
+        <form class="newContentForm" hidden>
+            <table class="newContentTable">
+                <tr>
+                    <th>제목</th>
+                    <td><input type="text" class="titleInput newContentInput"></td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td><textarea rows="5" class="contentInput newContentInput"></textarea></td>
+                </tr>
+                <tr>
+                    <th>글쓴이</th>
+                    <td><input type="text" class="authorInput newContentInput"></td>
+                </tr>
+                <tr>
+                    <th>비밀번호</th>
+                    <td><input type="text" class="passwordInput newContentInput"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="submitTd">
+                        <button type="button" class="newContentSubmit">등록</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </section>
+    <section class="contentsList">
+        <section class="list">
+            <table class="listTable">
+                <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>글쓴이</th>
+                    <th>조회수</th>
+                </tr>
+                </thead>
+                <tbody class="listBody">
+                </tbody>
+            </table>
+        </section>
+        <button type="button" class="moreContentsButton">&plus; 10개 더보기</button>
+    </section>
+    <div class="modifyLayer" style="display: none;">
+        <div class="modifyContainer">
+            <form class="modifyContentForm">
+                <table class="modifyContentTable">
+                    <input type="hidden" class="modifyContentId">
+                    <tr>
+                        <th>제목</th>
+                        <td><input type="text" class="modifyTitleInput modifyContentInput"></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea rows="5" class="modifyContentsInput modifyContentInput"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>글쓴이</th>
+                        <td><input type="text" class="modifyAuthorInput modifyContentInput"></td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호</th>
+                        <td><input type="text" class="modifyPasswordInput modifyContentInput"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="submitTd">
+                            <button type="button" class="modifyContentSubmit">수정</button>
+                            <button type="button" class="cancelContentSubmit">취소</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
