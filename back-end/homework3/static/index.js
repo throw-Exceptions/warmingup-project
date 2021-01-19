@@ -107,10 +107,8 @@ class ContentsAdmin {
         $.ajax({
             url: `/contents/${id}`,
             method: "PUT",
-            dataType: "json",
             data: contents,
-            success: function(data) {
-                let contents = data;
+            success: function() {
                 alert("게시글 수정 성공!");
                 $(".modifyContentForm input, .modifyContentForm textarea").val("");
                 $(".modifyLayer").attr("style", "display: none;");
@@ -226,7 +224,7 @@ class ContentsAdmin {
                 $contentTr.removeAttr("hidden");
                 $.ajax({
                     url: `/contents/${id}/view`,
-                    method: "POST"
+                    method: "PUT"
                 });
             } else {
                 $contentTr.attr("hidden", true);
