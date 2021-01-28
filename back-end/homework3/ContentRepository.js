@@ -56,6 +56,12 @@ class ContentRepository {
         return this._booleanQuery(queryStatement);
     }
 
+    selectWithOption(option, input) {
+        let queryStatement = `SELECT * FROM hw3_contents WHERE ${option} LIKE '%${input}%'
+                                ORDER BY id DESC`;
+        return this._listQuery(queryStatement);
+    }
+
     _oneQuery(queryStatement) {
         let result;
         try {

@@ -110,5 +110,19 @@ app.delete("/contents/:id", function(req, res) {
     }
 });
 
+app.get("/contents/:option", function(req, res) {
+    let option = req.params.option;
+    let input = req.query.input;
+    console.log(`Search request to content(option=${option}, input=${input}`);
+    let results;
+    if (option === "id") {
+        results = repository.selectBy(input);
+        results = (results) ? [results] : [];
+    } else {
+        results = repository.selectWithOption(option, input);
+    }
+    res.json(results);
+});
+
 app.listen(3000, () => console.log("Started server at localhost:3000"));
 

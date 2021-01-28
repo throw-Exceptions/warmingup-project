@@ -38,6 +38,14 @@ $(document).ready(function() {
     $(".moreContentsButton").click(function() {
         contentsAdmin.load();
     });
+    $(".searchButton").click(function() {
+        let option = $("#searchType").val();
+        let input = $(".searchInput").val();
+        if (!option || !input) {
+            return;
+        }
+        contentsAdmin.search(option, input);
+    });
 });
 
 class ContentsAdmin {
@@ -154,6 +162,33 @@ class ContentsAdmin {
             this._loadPage(contents);
         }
         this._addContentsHandler();
+    }
+    search(option, input) {
+        let optionURI = "";
+        if (option === "searchWithTitle") {
+            optionURI = "title";
+        } else if (option === "searchWithAuthor") {
+            optionURI = "author";
+        } else if (option === "searchWithNum") {
+            optionURI = "id";
+        }
+        let loadPage = this._loadPage;
+        $.ajax({
+            url: `/contents/${optionURI}?input=${input}`,
+            method: "GET",
+            dataType: "json",
+        }).done(function(data) {
+            let contentsList = data;
+            $(".listBody").empty();
+            for (let contents of contentsList) {
+                loadPage(contents);
+            }
+            if (contentsList.length === 0) {
+                $(".listBody").append($(`<tr>
+                    <td colspan="4" class="contentTitle">해당하는 검색 결과가 없습니다ㅠ_ㅠ</td>
+                </tr>`));
+            }
+        });
     }
     _getContentsInit() {
         let contentsList = [];

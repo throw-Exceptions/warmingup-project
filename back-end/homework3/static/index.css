@@ -171,3 +171,25 @@ td[colspan="4"] {
     box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
     z-index : 100;
 }
+.searchSection {
+    margin: 0 auto;
+}
+.searchInput:focus {
+    outline: none;
+}
+.searchButton {
+    font-weight: bold;
+    text-align: center;
+    width: 3rem;
+    background-color: white;
+    font-size: 1rem;
+    color: #4e4e4e;
+    border: 0.1rem #4e4e4e solid;
+    border-radius: 0.3rem;
+    margin-left: 0.2rem;
+}
+.searchButton:hover {
+    cursor: pointer;
+    color: white;
+    background-color: #4e4e4e;
+}

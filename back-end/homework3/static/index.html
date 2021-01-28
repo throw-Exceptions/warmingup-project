@@ -8,33 +8,35 @@
 <body>
 <div class="container">
     <section class="title">게시판</section>
-    <section class="newContent">
-        <button type="button" class="newButton">새 글</button>
-        <form class="newContentForm" hidden>
-            <table class="newContentTable">
-                <tr>
-                    <th>제목</th>
-                    <td><input type="text" class="titleInput newContentInput"></td>
-                </tr>
-                <tr>
-                    <th>내용</th>
-                    <td><textarea rows="5" class="contentInput newContentInput"></textarea></td>
-                </tr>
-                <tr>
-                    <th>글쓴이</th>
-                    <td><input type="text" class="authorInput newContentInput"></td>
-                </tr>
-                <tr>
-                    <th>비밀번호</th>
-                    <td><input type="text" class="passwordInput newContentInput"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" class="submitTd">
-                        <button type="button" class="newContentSubmit">등록</button>
-                    </td>
-                </tr>
-            </table>
-        </form>
+    <section>
+        <section class="newContent">
+            <button type="button" class="newButton">새 글</button>
+            <form class="newContentForm" hidden>
+                <table class="newContentTable">
+                    <tr>
+                        <th>제목</th>
+                        <td><input type="text" class="titleInput newContentInput"></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea rows="5" class="contentInput newContentInput"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>글쓴이</th>
+                        <td><input type="text" class="authorInput newContentInput"></td>
+                    </tr>
+                    <tr>
+                        <th>비밀번호</th>
+                        <td><input type="text" class="passwordInput newContentInput"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="submitTd">
+                            <button type="button" class="newContentSubmit">등록</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </section>
     </section>
     <section class="contentsList">
         <section class="list">
@@ -52,6 +54,15 @@
             </table>
         </section>
         <button type="button" class="moreContentsButton">&plus; 10개 더보기</button>
+    </section>
+    <section class="searchSection">
+        <select name="searchType" id="searchType">
+            <option value="searchWithTitle">제목</option>
+            <option value="searchWithAuthor">글쓴이</option>
+            <option value="searchWithNum">번호</option>
+        </select>
+        <input type="text" class="searchInput">
+        <button type="button" class="searchButton">검색</button>
     </section>
     <div class="modifyLayer" style="display: none;">
         <div class="modifyContainer">
