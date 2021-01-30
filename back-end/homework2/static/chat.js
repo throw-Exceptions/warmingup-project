@@ -25,16 +25,37 @@ function join() {
     });
 }
 function socketSetting() {
+    let username = $(".name").val();
     ws = new WebSocket("ws://localhost:3001");
     ws.onopen = () => {
         console.log("Connection opened");
+        ws.send(JSON.stringify({
+            cmd: "join",
+            data: {
+                username: username
+            }
+        }));
     }
     ws.onmessage = (e) => {
         let msgData = JSON.parse(e.data);
-        console.log(`message arrived: ${msgData.profile}, ${msgData.message}`);
-        addMessage(msgData);
+        switch (msgData.cmd) {
+            case "join":
+                console.log(`"${msgData.data.username}" has joined`);
+                handleJoinMessage(msgData.data);
+                break;
+            case "message":
+                console.log(`message arrived: ${msgData.profile}, ${msgData.message}`);
+                addMessage(msgData.data);
+                break;
+            case "left":
+                console.log(`"${msgData.data.username}" has left`);
+                handleLeftMessage(msgData.data);
+            default:
+                console.log(`"${msgData.cmd}" is not allowed command`);
+        }
     }
     ws.onclose = () => {
+        console.log("Socket Disconnected");
         ws = null;
     }
 }
@@ -57,8 +78,29 @@ function sendMessage() {
         return;
     }
     ws.send(JSON.stringify({
-        profile,
-        message
+        cmd: "message",
+        data: {
+            profile,
+            message
+        }
     }));
     $("textarea").val("");
+}
+function handleJoinMessage(data) {
+    let username = $(".name").val();
+    if (data.username === username) return;
+    $(".message-display").append($(`
+        <div class="notice">
+            <strong>${data.username}</strong>님이 입장하셨습니다.
+        </div>
+    `));
+}
+function handleLeftMessage(data) {
+    let username = $(".name").val();
+    if (data.username === username) return;
+    $(".message-display").append($(`
+        <div class="notice">
+            <strong>${data.username}</strong>님이 퇴장하셨습니다.
+        </div>
+    `));
 }

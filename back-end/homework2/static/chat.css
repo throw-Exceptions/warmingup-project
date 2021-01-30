@@ -18,6 +18,9 @@
     width: 100%;
     height: 550px;
 }
+.notice {
+    text-align: center;
+}
 .message {
     position: relative;
     left: 0.2rem;

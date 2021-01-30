@@ -27,11 +27,13 @@ app.get("/:filename", (req, res) => {
 socket.on("connection", (ws) => {
     console.log("Web Socket Connected");
     ws.on("message", (data) => {
-        console.log(data);
         socket.clients.forEach((client) => {
             client.send(data);
-        })
-    })
+        });
+    });
+    ws.on("close", () => {
+        console.log(`"${ws.username}" is disconnected.`);
+    });
 });
 
 app.listen(3000, () => console.log("Started server at localhost:3000"));
