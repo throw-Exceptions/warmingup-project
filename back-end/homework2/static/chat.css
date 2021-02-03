@@ -17,6 +17,7 @@
     border-bottom: 2px solid #a9a9a9;
     width: 100%;
     height: 550px;
+    overflow: auto;
 }
 .notice {
     text-align: center;
