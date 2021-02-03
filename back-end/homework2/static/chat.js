@@ -26,7 +26,7 @@ function join() {
 }
 function socketSetting() {
     let username = $(".name").val();
-    ws = new WebSocket("ws://localhost:3001");
+    ws = new WebSocket(`ws://${window.location.hostname}:3001`);
     ws.onopen = () => {
         console.log("Connection opened");
         ws.send(JSON.stringify({
@@ -46,6 +46,7 @@ function socketSetting() {
             case "message":
                 console.log(`message arrived: ${msgData.profile}, ${msgData.message}`);
                 addMessage(msgData.data);
+                scrollToBottom();
                 break;
             case "left":
                 console.log(`"${msgData.data.username}" has left`);
@@ -103,4 +104,7 @@ function handleLeftMessage(data) {
             <strong>${data.username}</strong>님이 퇴장하셨습니다.
         </div>
     `));
+}
+function scrollToBottom() {
+    $(".message-display").scrollTop($(".message-display")[0].scrollHeight);
 }
